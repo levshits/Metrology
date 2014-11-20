@@ -1,11 +1,13 @@
 class CodePreProcessor
   def pre_process(code)
     @code = code
+    # Attention. Order of operations is important
     @code.strip!
     remove_comments
     remove_empty_strings
     remove_compiler_instructions
     remove_string_costants
+    remove_escape_sequensies
     return @code
   end
   private
@@ -21,6 +23,9 @@ class CodePreProcessor
     @code.gsub!(/#[^d]+.*/,'')
   end
   def remove_string_costants
-    @code.gsub!(/".*"/,'<string/>')
+    @code.gsub!(/".*"/,'""')
+  end
+  def remove_escape_sequensies
+    @code.gsub!(/\s/,' ')
   end
 end

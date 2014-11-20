@@ -8,6 +8,8 @@ class Metric
     result = ""
     code_preprocessor = CodePreProcessor.new
     result = code_preprocessor.pre_process(code)
+    parser = CppParser.new()
+    result = parser.parse(result)
     return result
   end
 end
