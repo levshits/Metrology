@@ -78,7 +78,7 @@ class Main
     end
   end
   def calculate_click
-    @results_text.value = @selected_metric.calculate_metric(@code_text.value)
+    @results_text.value = @selected_metric.calculate(@code_text.value)
   end
   def select_metric
     if($radiobutton_group_control_variable=='jilb')

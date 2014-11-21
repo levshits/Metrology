@@ -6,7 +6,7 @@ class CodePreProcessor
     remove_comments
     remove_empty_strings
     remove_compiler_instructions
-    remove_string_costants
+    remove_string_constants
     remove_escape_sequensies
     return @code
   end
@@ -22,7 +22,7 @@ class CodePreProcessor
   def remove_compiler_instructions
     @code.gsub!(/#[^d]+.*/,'')
   end
-  def remove_string_costants
+  def remove_string_constants
     @code.gsub!(/".*"/,'""')
   end
   def remove_escape_sequensies

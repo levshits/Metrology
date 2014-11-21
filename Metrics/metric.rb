@@ -4,12 +4,17 @@ class Metric
   def get_result
     return "result as string"
   end
-  def calculate_metric(code)
+  def calculate(code)
     result = ""
     code_preprocessor = CodePreProcessor.new
     result = code_preprocessor.pre_process(code)
-    parser = CppParser.new()
-    result = parser.parse(result)
+    @parser = CppParser.new()
+    result = @parser.parse(result)
+    result = result + calculate_metric
     return result
+  end
+  private
+  def calculate_metric
+    return "\nIt's an abstract class"
   end
 end
