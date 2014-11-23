@@ -9,8 +9,9 @@ class Metric
     code_preprocessor = CodePreProcessor.new
     result = code_preprocessor.pre_process(code)
     @parser = CppParser.new()
-    result = @parser.parse(result)
-    result = result + calculate_metric
+    @parser.parse(result)
+    @syntax_analyser = SyntaxAnalyser.new(@parser)
+    result =  calculate_metric
     return result
   end
   private
